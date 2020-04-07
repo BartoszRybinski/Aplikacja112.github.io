@@ -1,0 +1,54 @@
+body
+  header
+    @include header
+    @media(min-width: $large-devices)
+      width: 90%
+      margin: auto
+  main
+    width: 100%
+    height: 85vh
+    background-color: $primary
+    display: flex
+    @media(min-width: $large-devices)
+      height: 75vh
+      width: 80%
+      margin: auto
+    .main-container
+      width: 80%
+      height: 70%
+      display: flex
+      flex-direction: column
+      margin: auto
+      justify-content: space-around
+      align-items: center
+      @media(min-width: $medium-devices)
+        width: 60%
+      @media(min-width: $full-hd)
+        width: 50%
+      form
+        display: flex
+        flex-direction: column
+        justify-content: space-around
+        height: 60%
+        width: 100%
+        input
+          border: none
+          background-color: transparent
+          border-bottom: 2px solid $white
+          font-size: 1.2em
+          color: $white
+          @media(min-width: $large-devices)
+            font-size: 1em          
+          @media(min-width: $full-hd)
+            font-size: 1.4em
+          &::placeholder
+            color: $white
+            opacity: 0.9
+            font-size: 0.95em
+
+      h1
+        margin: 0
+        color: $white
+        font-weight: $font-light
+      .btn-primary
+        @include btn-primary

@@ -1,13 +1,12 @@
 body
+  overflow: hidden
   header
-    @include header
+    @include header($white, $primary)
   main
     width: 100%
     height: 85vh
     background-color: $primary
     display: flex
-    @media(min-width: $large-devices)
-      height: 80vh
     .main-content-container
       height: 100%
       width: 100%

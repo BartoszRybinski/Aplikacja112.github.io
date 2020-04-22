@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Car accident</title>
+  <link rel="stylesheet" href="css/car.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html"><img src="img/logo.svg" alt="logo"></a>
+      <ul>
+        <a href="sign-in.html"><li>Bartosz</li></a>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="main-container">
+      <h1>Interwał</h1>
+      <span class="interval-status"></span>
+      <span class="interval-time"></span>
+      <img src="img/bell-icon-white.svg" alt="Car icon">
+      <span>Ustaw czas po którytm zostanie wysłane zgłoszenie na które należy odpowiedzieć.
+      Po trzykrotnym braku odpowiedzi odpowiednie służby zostaną poinformowane.</span>
+      <div class="btn-interval">
+        <div class="btn-interval-minus"></div>
+        <div class="btn-time-container">
+          <span class="btn-interval-time">1</span>
+        </div>
+        <div class="btn-interval-plus"></div>
+
+      </div>
+        <a href="">
+          <button class="btn-submit">
+            Ustaw czas
+          </button>
+        </a>
+    </div>
+  </main>
+  <script>
+try{
+  let minus = document.querySelector(".btn-interval-minus");
+  let result = document.querySelector(".btn-interval-time");
+  let plus = document.querySelector(".btn-interval-plus");
+
+  function substract(){
+  if(result.textContent<=1){
+    result.textContent = 1;
+  } else {
+    result.textContent = parseInt(result.textContent)-1;
+  }
+  }
+
+  function addition(){
+  if(result.textContent>=24){
+    result.textContent = 24;
+  } else {
+    result.textContent = parseInt(result.textContent)+1;
+  }
+  }
+  minus.addEventListener("click", substract);
+  plus.addEventListener("click", addition);
+
+}catch(error){
+  console.log(error.message);
+}
+  </script>
+</body>
+</html>

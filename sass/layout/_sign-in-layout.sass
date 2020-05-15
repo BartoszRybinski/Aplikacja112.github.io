@@ -9,12 +9,11 @@ body
     height: 85vh
     display: flex
     @media(min-width: $large-devices)
-      height: 75vh
       width: 80%
       margin: auto
     .main-container
       width: 80%
-      height: 70%
+      height: 90%
       display: flex
       flex-direction: column
       margin: auto
@@ -28,7 +27,7 @@ body
         display: flex
         flex-direction: column
         justify-content: space-around
-        height: 60%
+        height: 70%
         width: 100%
         input
           border: none
@@ -59,5 +58,6 @@ body
         @include btn-primary
         border-color: $black
         color: $black
+        align-self: center
         &:hover
           border-color: $primary

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+
+   * element that contains the map. */
+
+    #map {
+
+      height: 100%;
+
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+
+    html,
+    body {
+
+      height: 100%;
+
+      margin: 0;
+
+      padding: 0;
+
+    }
+  </style>
+  <script>
+  function success(pos) {
+    let coords = pos.coords;
+    let latitude = coords.latitude;
+    let longitude = coords.longitude;
+    var script = document.createElement('script');
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAOsQ9QgPJi2ACwffttAJEXJDEc8spGr-Y&libraries=places&callback=initMap';
+    script.defer = true;
+    script.async = true;
+
+    // Attach your callback function to the `window` object
+    window.initMap = function() {
+      myLatlng = {lat: latitude, lng: longitude};
+      var center = new google.maps.LatLng(latitude, longitude);
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+          lat: latitude,
+          lng: longitude
+        },
+        zoom: 12
+
+      });
+      var request = {
+        location: center,
+        radius: 50000,
+        types: ['hospital']
+      };
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'Click to zoom',
+        icon: {
+          url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+        }
+      });
+
+
+
+
+      var service = new google.maps.places.PlacesService(map);
+      service.nearbySearch(request, callback);
+      console.log(service);
+    };
+
+    // Append the 'script' element to 'head'
+    document.head.appendChild(script);
+  }
+
+
+  function getLocation() {
+    try{
+      if(`geolocation` in navigator) {
+        navigator.geolocation.getCurrentPosition(success);
+      } else {
+        error();
+      }
+    } catch(err) {
+      document.write(`Catch Błąd ${err.message}`);
+    }
+  }
+
+  getLocation();
+
+
+
+
+    let map;
+
+
+    function callback(results, status) {
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          createMarker(results[i]);
+        }
+      }
+    }
+
+    function createMarker(place) {
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+    }
+
+  </script>
+</head>
+
+<body>
+  <div id="map"></div>
+  <!-- Replace the value of the key parameter with your own API key. -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOsQ9QgPJi2ACwffttAJEXJDEc8spGr-Y&libraries=places&callback=initMap" defer></script> -->
+
+</body>
+
+</html>

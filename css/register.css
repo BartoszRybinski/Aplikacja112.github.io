@@ -492,7 +492,7 @@ body main {
       width: 80%; } }
   body main .main-container {
     width: 80%;
-    height: 90%;
+    height: 95%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -520,9 +520,10 @@ body main {
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
       flex-direction: column;
-      -ms-flex-pack: distribute;
-      justify-content: space-around;
-      height: 60%;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      height: 70%;
       width: 100%; }
       body main .main-container form input {
         border: none;
@@ -575,7 +576,10 @@ body main {
       -o-transition: 0.3s ease-in-out;
       transition: 0.3s ease-in-out;
       border-color: #000000;
-      color: #000000; }
+      color: #000000;
+      -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center; }
       body main .main-container .btn-primary:hover {
         background-color: #FFFFFF;
         color: #E74C3C; }

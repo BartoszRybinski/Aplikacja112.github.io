@@ -500,11 +500,27 @@ body main {
     align-items: center;
     -ms-flex-pack: distribute;
     justify-content: space-around; }
+    @media (min-width: 768px) {
+      body main .main-container {
+        width: 60%; } }
+    @media (min-width: 992px) {
+      body main .main-container {
+        width: 50%; } }
+    @media (min-width: 1150px) {
+      body main .main-container {
+        width: 40%;
+        height: 95%; } }
     body main .main-container h1 {
       margin: 0; }
     body main .main-container span {
       text-align: center;
       font-size: 1.2em; }
+      @media (min-width: 992px) {
+        body main .main-container span {
+          font-size: 1em; } }
+      @media (min-width: 1150px) {
+        body main .main-container span {
+          font-size: 0.9em; } }
     body main .main-container .btn-interval {
       width: 90%;
       height: 15%;

@@ -1,7 +1,7 @@
 const navUl = document.querySelector(".nav-ul");
-const user = document.querySelector(".nav-user");
+const panel = document.querySelector(".nav-panel");
 let dropMenu = document.querySelectorAll(".drop-menu");
-user.addEventListener("click", ()=>{
+panel.addEventListener("click", ()=>{
   navUl.classList.toggle("nav-ul-toggle");
   dropMenu[0].classList.toggle("drop-menu-toggle");
   dropMenu[1].classList.toggle("drop-menu-toggle");

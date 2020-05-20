@@ -44,7 +44,7 @@
     // Attach your callback function to the `window` object
     window.initMap = function() {
       myLatlng = {lat: latitude, lng: longitude};
-      var center = new google.maps.LatLng(latitude, longitude);
+      let center = new google.maps.LatLng(latitude, longitude);
       map = new google.maps.Map(document.getElementById('map'), {
         center: {
           lat: latitude,
@@ -53,12 +53,12 @@
         zoom: 12
 
       });
-      var request = {
+      let request = {
         location: center,
         radius: 50000,
         types: ['hospital']
       };
-      var marker = new google.maps.Marker({
+      let marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
         title: 'Click to zoom',
@@ -70,7 +70,7 @@
 
 
 
-      var service = new google.maps.places.PlacesService(map);
+      let service = new google.maps.places.PlacesService(map);
       service.nearbySearch(request, callback);
       console.log(service);
     };

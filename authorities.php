@@ -17,8 +17,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Search Hospital</title>
-  <link rel="stylesheet" href="css/car.css">
+  <title>Aplikacja112</title>
+  <link rel="stylesheet" href="css/app.css">
 </head>
 <?php if (isset($_SESSION['success'])) : ?>
 <body>
@@ -33,20 +33,10 @@
     </ul>
   </nav>
 </header>
-  <main>
-    <div class="main-container">
-      <h1>Znajdź szpital</h1>
-      <img src="img/hospital-icon-white.svg" alt="Ikona szpitala">
-      <span>Potrzebujesz znaleźć najbliższy szpital w Twojej okolicy?
-      Kliknij w przycisk, a my zrobimy to za Ciebie.
-    </span>
-        <a href="https://bartoszrybinski.github.io/find-hospital.github.io/find-hospital.html">
-          <button class="btn-submit">
-            Znajdź szpital
-          </button>
-        </a>
-    </div>
-  </main>
-  <?php endif ?>
+<main>
+<h1>Odpowiednie służby zostały poinformowane</h1>
+</main>
+<?php endif ?>
+<script src="js/app.js"></script>
 </body>
 </html>

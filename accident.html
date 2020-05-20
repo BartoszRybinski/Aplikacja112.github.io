@@ -10,9 +10,9 @@
 <body>
 <header>
   <nav>
-    <a href="index.html"><img src="img/logo.svg" alt="Logo karetki jadącej na sygnale"></a>
+    <a href="http://www.rybinski.dev.minda.pl/App/index.html"><img src="img/logo.svg" alt="Logo karetki jadącej na sygnale"></a>
     <ul class="nav-ul">
-      <li class="nav-user">Użytkownik</li>
+      <li class="nav-panel">Panel</li>
       <li class="drop-menu">Ustawienia</li>
       <li class="drop-menu">Wyloguj się</li>
 
@@ -35,7 +35,7 @@
   let btnSubmit = document.querySelector(".btn-submit");
   function success(pos) {
 let coords = pos.coords;
-window.open(`http://www.rybinski.dev.minda.pl/App/accident-form.php?latitude=${coords.latitude}&longitude=${coords.longitude}&accuracy=${coords.accuracy}`); 
+window.open(`http://www.rybinski.dev.minda.pl/App/accident-form.php?latitude=${coords.latitude}&longitude=${coords.longitude}&accuracy=${coords.accuracy}`);
 
 }
 

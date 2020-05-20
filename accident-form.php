@@ -47,23 +47,15 @@
       </div>
       <div class="form-group">
         <label>Dokładność</label>
-        <input type="number" class="form-control form-accuracy" placeholder="Dokładność" name="formAccuracy">
+        <input type="text" class="form-control form-accuracy" placeholder="Dokładność" name="formAccuracy">
       </div>
       <div class="form-group">
         <label for="FormControlSelect">Wybierz służby, które zostaną zaangażowane</label>
         <select multiple class="form-control form-control-services" name="selectServices" id="FormControlSelect">
           <option>Stłuczka</option>
           <option>Wypadek Samochodowy</option>
-          <option>Zasłabnięcie</option>
-          <option>Pobicie</option>
-          <option>Radiowóz</option>
-          <option>Służby AT</option>
-          <option>Wóz gaśniczy</option>
-          <option>Ekipa gaśnicza</option>
-          <option>Straż miejska</option>
-          <option>Pogotowie gazowe</option>
-          <option>Pogotowie energetyczne</option>
-          <option>Pogotowie wodociągowe</option>
+          <option>Pijany kierowca</option>
+          <option>Potrącenie pieszego</option>
           <option>Inne</option>
         </select>
       </div>

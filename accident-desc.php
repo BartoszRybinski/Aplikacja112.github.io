@@ -10,7 +10,6 @@ $errors = array();
 // connect to the database
 $db = mysqli_connect($servername, $username, $password, $dbname);
 
-// REGISTER USER
 if (isset($_POST['reg_details'])) {
   // receive all input values from the form
   $formUsername = mysqli_real_escape_string($db, $_POST['formUsername']);
@@ -23,9 +22,7 @@ if (isset($_POST['reg_details'])) {
   // by adding (array_push()) corresponding error unto $errors array
   if (empty($seletService)) { array_push($errors, "Wybierz wydarzenie"); }
 
-  // first check the database to make sure
-  // a user does not already exist with the same username and/or email
-  // Finally, register user if there are no errors in the form
+  // Insert data
   if (count($errors) == 0) {
 
   	$query = "INSERT INTO event (username,latitude, longitude, accuracy, accident, checked, eventdate)

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +8,24 @@
   <link rel="stylesheet" href="css/car.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html"><img src="img/logo.svg" alt="logo"></a>
-      <ul>
-        <a href="sign-in.html"><li>Bartosz</li></a>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <nav>
+    <a href="index.html"><img src="img/logo.svg" alt="Logo karetki jadącej na sygnale"></a>
+    <ul class="nav-ul">
+      <li class="nav-user">Panel</li>
+      <li class="drop-menu">Ustawienia</li>
+      <li class="drop-menu">Wyloguj się</li>
+
+    </ul>
+  </nav>
+</header>
   <main>
     <div class="main-container">
       <h1>Interwał</h1>
       <span class="interval-status"></span>
       <span class="interval-time"></span>
-      <img src="img/bell-icon-white.svg" alt="Car icon">
-      <span>Ustaw czas po którytm zostanie wysłane zgłoszenie na które należy odpowiedzieć.
+      <img src="img/bell-icon-white.svg" alt="Ikona dzwonka">
+      <span>Ustaw czas, po którym zostanie wysłane zgłoszenie, na które należy odpowiedzieć.
       Po trzykrotnym braku odpowiedzi odpowiednie służby zostaną poinformowane.</span>
       <div class="btn-interval">
         <div class="btn-interval-minus"></div>
@@ -39,33 +42,75 @@
         </a>
     </div>
   </main>
-  <script>
-try{
-  let minus = document.querySelector(".btn-interval-minus");
-  let result = document.querySelector(".btn-interval-time");
-  let plus = document.querySelector(".btn-interval-plus");
+  <script src="js/interval.js"></script>
+  <script type="text/javascript">
 
-  function substract(){
-  if(result.textContent<=1){
-    result.textContent = 1;
+  let data = new Date();
+  let endHours = localStorage['dateHours'] || 'defaultValue';
+  let endMinutes = localStorage['dateMinutes'] || 'defaultValue';
+  let endSeconds = localStorage['dateSeconds'] || 'defaultValue';
+  let data1 = new Date(2020,5,20,data.getHours(),data.getMinutes(),data.getSeconds());
+  let data2 = new Date(2020,5,20,endHours,endMinutes,endSeconds);
+
+  let btnSubmit = document.querySelector(".btn-submit");
+  //Set time to cache variable
+  btnSubmit.addEventListener("click", ()=>{
+    let date = new Date();
+    localStorage['dateHours'] = date.getHours() + 2;
+    localStorage['dateMinutes'] = date.getMinutes();
+    localStorage['dateSeconds'] = date.getSeconds();
+    localStorage['intervalOn'] = true;
+    // localStorage['Date'] = date.
+    btnSubmit.disabled = "true";
+    showTime((data2-data1)/1000)
+
+  })
+  function success(pos) {
+  let coords = pos.coords;
+  window.open(`http://www.rybinski.dev.minda.pl/App/authorities.php?latitude=${coords.latitude}&longitude=${coords.longitude}&accuracy=${coords.accuracy}`);
+  console.log("Działa");
+  }
+
+  function getLocation() {
+  try{
+  if(`geolocation` in navigator) {
+    navigator.geolocation.getCurrentPosition(success);
+
   } else {
-    result.textContent = parseInt(result.textContent)-1;
+    error();
+  }
+  } catch(err) {
+  document.write(`Catch Błąd ${err.message}`);
   }
   }
 
-  function addition(){
-  if(result.textContent>=24){
-    result.textContent = 24;
-  } else {
-    result.textContent = parseInt(result.textContent)+1;
-  }
-  }
-  minus.addEventListener("click", substract);
-  plus.addEventListener("click", addition);
 
-}catch(error){
-  console.log(error.message);
-}
+  function showTime(time) {
+    let spanTime = document.querySelector(".interval-time");
+    let timeInMinutes;
+    time = 3;
+    function interval() {
+      spanTime.textContent = `${Math.floor(time / 3600)}h ${Math.floor((time / 60)%60)}min`
+      time--;
+      if(time <0) {
+        btnSubmit.disabled = "false";
+        localStorage['intervalOn'] = false;
+        spanTime.textContent = "wylaczony";
+        clearInterval(timer);
+        getLocation();
+      }
+    }
+    let timer = setInterval(interval, 1000);
+  }
+
+  let checkInterval = localStorage['intervalOn'];
+
+  {
+    if(checkInterval == 'true') {
+      showTime((data2-data1)/1000)
+      btnSubmit.disabled = "true";
+    }
+  }
   </script>
 </body>
 </html>

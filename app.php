@@ -26,7 +26,7 @@
   <nav>
     <a href="index.html"><img src="img/logo.svg" alt="Logo karetki jadącej na sygnale"></a>
     <ul class="nav-ul">
-      <li class="nav-user"><?php echo $_SESSION['username']; ?></li>
+      <li class="nav-panel">Panel</li>
       <li class="drop-menu">Ustawienia</li>
       <li class="drop-menu">Wyloguj się</li>
 
@@ -43,12 +43,12 @@
   <div class="main-app">
     <div class="main-app-container">
       <div class="main-app-wrap">
-        <a href="interval.php"></a>
+        <a href="https://bartoszrybinski.github.io/Aplikacja112.github.io/interval.html"></a>
         <img src="img/bell-icon.svg" alt="Ikona dzwonka">
         <span>Interwał</span>
       </div>
       <div class="main-app-wrap accident">
-        <a href="accident.php"></a>
+        <a href="https://bartoszrybinski.github.io/Aplikacja112.github.io/accident.html"></a>
         <img src="img/car-icon.svg" alt="Ikona samochodu">
         <span>Zgłoś Stłuczkę</span>
       </div>

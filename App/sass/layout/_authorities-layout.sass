@@ -1,0 +1,48 @@
+body
+  overflow: hidden
+  header
+    @include header($white, $primary)
+    nav
+      ul
+        list-style: none
+        display: flex
+        justify-content: space-between
+        li
+          position: relative
+          cursor: pointer
+          &:before
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 0%
+            background-color: transparent
+            border-left: 2px solid red
+            transform: translateX(-5px)
+            transition: 0.3s ease-in-out
+          &:hover
+            &:before
+              height: 100%
+        .drop-menu
+          display: none
+        .drop-menu-toggle
+          display: block
+      .nav-ul-toggle
+        width: 80%
+        @media(min-width: $medium-devices)
+          width: 60%
+        @media(min-width: $large-devices)
+          width: 50%
+
+  main
+    width: 100%
+    height: 85vh
+    background-color: $primary
+    display: flex
+    justify-content: center
+    align-items: center
+    h1
+      color: $white
+      width: 70%
+      text-align: center

@@ -1,0 +1,134 @@
+body
+  header
+    @include header($white, $primary)
+    nav
+      ul
+        list-style: none
+        display: flex
+        justify-content: space-between
+        li
+          position: relative
+          cursor: pointer
+          &:before
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 0%
+            background-color: transparent
+            border-left: 2px solid red
+            transform: translateX(-5px)
+            transition: 0.3s ease-in-out
+          &:hover
+            &:before
+              height: 100%
+        .drop-menu
+          display: none
+        .drop-menu-toggle
+          display: block
+      .nav-ul-toggle
+        width: 80%
+        @media(min-width: $medium-devices)
+          width: 60%
+        @media(min-width: $large-devices)
+          width: 50%
+
+
+
+  main
+    height: 85vh
+    width: 100%
+    background-color: $primary
+    display: flex
+    color: $white
+    .main-container
+      margin: auto
+      height: 90%
+      width: 80%
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: space-around
+      @media(min-width: $medium-devices)
+        width: 60%
+      @media(min-width: $large-devices)
+        width: 50%
+      @media(min-width: $extra-large-devices)
+        width: 40%
+        height: 95%
+
+      h1
+        margin: 0
+      span
+        text-align: center
+        font-size: 1.2em
+        @media(min-width: $large-devices)
+          font-size: 1em
+        @media(min-width: $extra-large-devices)
+          font-size: 0.9em
+      .interval-status
+        color: lightgreen
+      .btn-interval
+        width: 90%
+        height: 15%
+        background: $white
+        display: flex
+        .btn-interval-minus
+          border-right: 2px solid $primary
+          width: 30%
+          height: 80%
+          margin: auto
+          cursor: pointer
+          position: relative
+          &:after
+            width: 50%
+            height: 2px
+            background-color: $primary
+            content: ''
+            top: 50%
+            left: 50%
+            position: absolute
+            transform: translate(-50%, -50%)
+        .btn-time-container
+          width: 40%
+          height: 100%
+          position: relative
+          .btn-interval-time
+            color: $primary
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            margin: auto
+            font-size: 2.5em
+        .btn-interval-plus
+          width: 30%
+          height: 80%
+          border-left: 2px solid $primary
+          margin: auto
+          cursor: pointer
+          position: relative
+          &:before
+            content: ''
+            position: absolute
+            width: 50%
+            height: 2px
+            background-color: $primary
+            top: 50%
+            left: 25%
+            transform: translate(-50%, -50%)
+            transform: rotate(90deg)
+          &:after
+            width: 50%
+            height: 2px
+            background-color: $primary
+            content: ''
+            top: 50%
+            left: 50%
+            position: absolute
+            transform: translate(-50%, -50%)
+      .btn-submit
+        @include btn-secondary
+      .btn-cancel
+        @include btn-secondary      

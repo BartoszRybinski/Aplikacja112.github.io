@@ -1,0 +1,74 @@
+@mixin header($background, $color)
+  width: 100%
+  height: 15vh
+  margin: 0
+  background-color: $background
+  nav
+    width: 90%
+    height: 100%
+    display: flex
+    margin: auto
+    justify-content: space-between
+    align-items: center
+    a
+      width: 15%
+      @media(min-width: $small-devices)
+        width: 13%
+      @media(min-width: $medium-devices)
+        width: 10%
+      @media(min-width: $large-devices)
+        width: 7%
+      img
+        width: 100%
+        margin: 0
+        cursor: pointer
+        @media(min-width: $large-devices)
+          width: 80%
+    ul
+      a
+        text-decoration: none
+        li
+          color: $color
+          list-style-type: none
+          font-size: 1.1em
+          position: relative
+          &:before
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 0%
+            background-color: transparent
+            border-left: 2px solid $color
+            transform: translateX(-5px)
+            transition: 0.3s ease-in-out
+          &:hover
+            &:before
+              height: 100%
+          @media(min-width: $extra-large-devices)
+            font-size: 1em
+
+@mixin btn-primary
+  background-color: transparent
+  border: 2px solid $white
+  padding: 20px 30px
+  color: $white
+  border-radius: 10px
+  font-size: 1.2em
+  cursor: pointer
+  transition: 0.3s ease-in-out
+  &:hover
+    background-color: $white
+    color: $primary
+
+@mixin btn-secondary
+  background-color: $white
+  border: none
+  padding: 20px 30px
+  color: $primary
+  cursor: pointer
+  transition: 0.3s ease-in-out
+  &:hover
+    background-color: $green
+    color: $white

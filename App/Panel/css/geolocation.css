@@ -1,0 +1,15 @@
+main{
+  width: 90%;
+  height: 80vh;
+  display: flex;
+  margin: auto;
+}
+.main-container{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 40%;
+  height: 70%;
+  justify-content: space-around;
+  align-items: center;
+}

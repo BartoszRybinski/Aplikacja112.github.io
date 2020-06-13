@@ -23,6 +23,9 @@
 
 > https://rybinski.dev.minda.pl/Aplikacja112/Panel/
 
+> Dokumentacja do projektu znajduję się pod linkiem:
+
+> https://rybinski.dev.minda.pl/Aplikacja112/dokumentacja/#/
 
 
 [![made-with-HTML](https://img.shields.io/badge/Made%20with-HTML-1f425f.svg)](https://devdocs.io/html/)[![made-with-CSS](https://img.shields.io/badge/Made%20with-CSS-1f425f.svg)](https://devdocs.io/css/)[![made-with-SASS](https://img.shields.io/badge/Made%20with-SASS-1f425f.svg)](https://sass-lang.com/documentation)[![made-with-Javascript](https://img.shields.io/badge/Made%20with-Javascript-1f425f.svg)](https://devdocs.io/javascript/)[![made-with-PHP](https://img.shields.io/badge/Made%20with-PHP-1f425f.svg)](https://www.php.net/docs.php)[![made-with-mySQL](https://img.shields.io/badge/Made%20with-mySQL-1f425f.svg)](https://dev.mysql.com/doc/)
